@@ -1,17 +1,22 @@
 import React from 'react';
 import css from './post.module.css';
 
-const Post = () => {
+type PostPropsType = {
+    message: string
+    likes: number
+}
+
+const Post = (props: PostPropsType) => {
     return (
         <div className={css.item}>
             <figure>
                 <img src="https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg" alt=""/>
             </figure>
 
-            <p>Post 1</p>
+            <p>{props.message}</p>
 
             <div>
-                <span>like</span>
+                <span>likes - {props.likes}</span>
             </div>
 
         </div>
