@@ -4,7 +4,7 @@ import MyPosts from "./myPosts/MyPosts";
 
 const Profile = () => {
     return (
-        <div className={css.content}>
+        <div>
 
             <figure className={css.image}>
                 <img src="https://www.americanoceans.org/wp-content/uploads/2023/01/biggest-oceans-1024x576.jpg" alt=""/>

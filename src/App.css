@@ -116,9 +116,13 @@ main {
 
 img {
     max-width: 100%;
+    vertical-align: top;
 }
 
 /* --- Global CSS end --- */
+
+
+
 
 
 
@@ -129,4 +133,9 @@ img {
 
 .app-main {
     display: flex;
+}
+
+.app-content {
+    flex-grow: 1;
+    background-color: cornflowerblue;
 }
