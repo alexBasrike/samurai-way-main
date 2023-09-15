@@ -5,9 +5,9 @@
 }
 
 .nav {
-    
+    padding: 20px;
 }
 
-.active a {
+.nav ul li a.active {
     color: #ff0000;
 }
