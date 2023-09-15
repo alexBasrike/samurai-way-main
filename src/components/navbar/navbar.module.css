@@ -7,3 +7,7 @@
 .nav {
     
 }
+
+.active a {
+    color: #ff0000;
+}
