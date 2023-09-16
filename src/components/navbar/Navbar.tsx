@@ -8,19 +8,19 @@ const Navbar = () => {
             <nav className={css.nav}>
                 <ul>
                     <li>
-                        <NavLink to="/profile" activeClassName={css.active}>Profile</NavLink>
+                        <NavLink exact to="/profile" activeClassName={css.active}>Profile</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/dialogs" activeClassName={css.active}>Messages</NavLink>
+                        <NavLink exact to="/dialogs" activeClassName={css.active}>Messages</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/news" activeClassName={css.active}>News</NavLink>
+                        <NavLink exact to="/news" activeClassName={css.active}>News</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/music" activeClassName={css.active}>Music</NavLink>
+                        <NavLink exact to="/music" activeClassName={css.active}>Music</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/settings" activeClassName={css.active}>Settings</NavLink>
+                        <NavLink exact to="/settings" activeClassName={css.active}>Settings</NavLink>
                     </li>
                 </ul>
             </nav>

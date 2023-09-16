@@ -1,21 +1,13 @@
 import React from 'react';
 import css from './profile.module.css';
 import MyPosts from "./myPosts/MyPosts";
+import ProfileInfo from "../profileInfo/ProfileInfo";
 
 const Profile = () => {
     return (
         <div>
-
-            <figure className={css.image}>
-                <img src="https://www.americanoceans.org/wp-content/uploads/2023/01/biggest-oceans-1024x576.jpg" alt=""/>
-            </figure>
-
-            <div>
-                ava + description
-            </div>
-
+            <ProfileInfo/>
             <MyPosts/>
-
         </div>
     );
 };

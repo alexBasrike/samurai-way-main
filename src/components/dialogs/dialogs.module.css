@@ -14,7 +14,7 @@
     margin: 0 0 10px 0;
 }
 
-.dialogsNames .item.active {
+.dialogsNames .item .active {
     color: #ff0000;
 }
 
