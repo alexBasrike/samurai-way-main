@@ -34,7 +34,7 @@ type DialogItemPropsType = {
     id: number
 }
 
-const DialogItem = (props: DialogItemPropsType) => {
+const DialogItem: React.FC<DialogItemPropsType> = (props) => {
     return (
         <div className={css.item}>
             <NavLink to={"/dialogs/" + props.id} activeClassName={css.active}>{props.name}</NavLink>
@@ -48,7 +48,7 @@ type MessagePropsType = {
     message: string
 }
 
-const Message = (props: MessagePropsType) => {
+const Message: React.FC<MessagePropsType> = (props) => {
     return (
         <div className={css.item}>{props.message}</div>
     )
