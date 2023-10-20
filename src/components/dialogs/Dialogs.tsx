@@ -4,7 +4,7 @@ import {NavLink} from "react-router-dom";
 
 export const Dialogs = () => {
 
-    const dialogsData = [
+    const dialogs = [
         {id: 1, name: "Dimych" },
         {id: 2, name: "Andrey" },
         {id: 3, name: "Sveta" },
@@ -13,7 +13,7 @@ export const Dialogs = () => {
         {id: 6, name: "Valera" }
     ]
 
-    const messagesData = [
+    const messages = [
         {id: 1, message: "Hi"},
         {id: 2, message: "How is your it-kamasutra?"},
         {id: 3, message: "Yo"},
@@ -21,17 +21,18 @@ export const Dialogs = () => {
         {id: 5, message: "Yo"}
     ]
 
+    const dialogsElements = dialogs.map( d => <DialogItem name={d.name} id={d.id}/> );
+    const messagesElements = messages.map( m => <Message message={m.message}/> );
+
     return (
         <div className={css.dialogs}>
 
             <div className={css.dialogsNames}>
-                <DialogItem name={dialogsData[0].name} id={dialogsData[0].id}/>
-                <DialogItem name={dialogsData[1].name} id={dialogsData[1].id}/>
+                { dialogsElements }
             </div>
 
             <div className={css.dialogsMessages}>
-                <Message message={messagesData[0].message}/>
-                <Message message={messagesData[1].message}/>
+                { messagesElements }
             </div>
 
         </div>
