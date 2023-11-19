@@ -1,28 +1,36 @@
-import React from 'react';
+import React, {DetailedHTMLProps, TextareaHTMLAttributes} from 'react';
 import css from './dialogs.module.css';
 import {DialogItem} from "./dialogItem/DialogItem";
 import {Message} from "./message/Message";
-import {DialogsType, MessagesType} from "../../index";
+import {DialogsPageType} from "../../redux/state";
 
-type DialogsPropsType = {
-    dialogs: Array<DialogsType>
-    messages: Array<MessagesType>
-}
+export const Dialogs = (props: DialogsPageType) => {
 
-export const Dialogs = (props: DialogsPropsType) => {
+    const dialogsElements = props.dialogs.map((d, index) => <DialogItem name={d.name} id={d.id} index={index}/>);
+    const messagesElements = props.messages.map((m, index) => <Message message={m.message} index={index}/>);
 
-    const dialogsElements = props.dialogs.map( d => <DialogItem name={d.name} id={d.id}/> );
-    const messagesElements = props.messages.map( m => <Message message={m.message}/> );
+    let newPostElement: React.RefObject<any> = React.createRef();
+
+    const addPost = () => {
+        let text = newPostElement.current.value;
+        alert(text);
+    }
 
     return (
         <div className={css.dialogs}>
 
             <div className={css.dialogsNames}>
-                { dialogsElements }
+                {dialogsElements}
             </div>
 
             <div className={css.dialogsMessages}>
-                { messagesElements }
+                {messagesElements}
+                <p>
+                    <textarea ref={newPostElement}></textarea>
+                </p>
+                <p>
+                    <button onClick={addPost}>Add message</button>
+                </p>
             </div>
 
         </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import {RootStateType} from './redux/state';
 import Header from "./components/header/Header";
 import Navbar from "./components/navbar/Navbar";
 import Profile from "./components/profile/Profile";
@@ -7,18 +8,18 @@ import {Dialogs} from "./components/dialogs/Dialogs";
 import News from "./components/news/News";
 import Music from "./components/music/Music";
 import Settings from "./components/settings/Settings";
-import {BrowserRouter, Route} from "react-router-dom";
-import {DialogsType, MessagesType, PostsType} from "./index";
+import {BrowserRouter, Route, Switch} from "react-router-dom";
 
 type AppPropsType = {
-    posts: Array<PostsType>
-    dialogs: Array<DialogsType>
-    messages: Array<MessagesType>
+    state: RootStateType
+    addPost: () => void
+    updateNewPostText: (text: string) => void
 }
 
 const App = (props: AppPropsType) => {
     return (
         <BrowserRouter>
+            <Switch>
             <div className="app">
 
                 <Header/>
@@ -26,15 +27,26 @@ const App = (props: AppPropsType) => {
                 <main className={"app-main"}>
                     <Navbar/>
                     <div className="app-content">
-                        <Route path={"/dialogs"} render={ () => <Dialogs dialogs={props.dialogs} messages={props.messages} /> }/>
-                        <Route path={"/profile"} render={ () => <Profile posts={props.posts} /> }/>
-                        <Route path={"/news"} render={ () => <News /> }/>
-                        <Route path={"/music"} render={ () => <Music /> }/>
-                        <Route path={"/settings"} render={ () => <Settings /> }/>
+                        <Route path={"/dialogs"} render={() => <Dialogs
+                            dialogs={props.state.dialogsPage.dialogs}
+                            messages={props.state.dialogsPage.messages}
+                        />}
+                        />
+                        <Route path={"/profile"} render={() => <Profile
+                            posts={props.state.profilePage.posts}
+                            newPostText={props.state.profilePage.newPostText}
+                            addPost={props.addPost}
+                            updateNewPostText={props.updateNewPostText}
+                        />}
+                        />
+                        <Route path={"/news"} render={() => <News/>}/>
+                        <Route path={"/music"} render={() => <Music/>}/>
+                        <Route path={"/settings"} render={() => <Settings/>}/>
                     </div>
                 </main>
 
             </div>
+            </Switch>
         </BrowserRouter>
     )
 }
